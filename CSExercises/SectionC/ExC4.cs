@@ -21,7 +21,13 @@ namespace CSExercises
         public static void Main(string[] args)
         {
 
-            //Your code here
+            Console.WriteLine("Enter Distance Travelled:");
+            Double input = Convert.ToDouble(Console.ReadLine());
+
+            double distance = (System.Math.Ceiling(input * 10)) / 10;
+            double fare = CalculateFare(distance);
+
+            Console.WriteLine("{0:0.0}", fare);
 
 
 
@@ -29,8 +35,32 @@ namespace CSExercises
 
         public static double CalculateFare(double distance)
         {
-            //YOUR CODE HERE
-            return 0;
+            Double rateA = 2.40;
+            Double rateB, rateC;
+            Double totCharge;
+
+            if (distance <= 0.5)
+            {
+                totCharge = rateA;
+            }
+            else
+            {
+
+
+                if (distance > 0.5 && distance <= 9)
+                {
+                    rateB = (distance - 0.5) * 0.4;
+                    totCharge = rateA + rateB;
+                }
+                else
+                {
+                    rateB = 8.5 * 0.4;
+                    rateC = (distance - 9) * 0.5;
+                    totCharge = rateA + rateB + rateC;
+
+                }
+            }
+            return totCharge;
 
 
 
