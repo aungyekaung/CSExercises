@@ -24,6 +24,8 @@ namespace CSExercises
             string grade = CalculateGrade(mark);
             Console.WriteLine("You scored {0} marks which is {1} grade.", grade);
 
+            Console.WriteLine("");
+
         }
 
         public static string CalculateGrade(int mark)
