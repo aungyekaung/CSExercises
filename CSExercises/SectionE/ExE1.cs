@@ -31,15 +31,25 @@ namespace CSExercises
         public static int CalculateFactorialInc(int n)
         {
             //YOUR CODE HERE
-            return 0;
-
+            int k;
+            int Incfact = 1;
+            for (k = 0; k < n; k++)
+            {
+                Incfact = Incfact * (k + 1);
+            }
+            return Incfact;
 
         }
 
         public static int CalculateFactorialDec(int n)
         {
-            //YOUR CODE HERE
-            return 0;
+            int k;
+            int Decfact = n;
+            for (k = n; k > 1; k--)
+            {
+                Decfact = Decfact * (k-1);
+            }
+            return Decfact;
 
 
         }

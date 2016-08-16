@@ -15,7 +15,6 @@ namespace ExercisesTest
     {
         ConsoleLog l;
         FakeStringWriter tw;
-        TextReader tr;
 
         public TestHelper() 
         {

@@ -21,22 +21,32 @@ namespace CSExercises
             int n = Convert.ToInt32(Console.ReadLine());
 
 
-            if (IsPrime(n))
-            {
-                Console.WriteLine("Prime");
-            }
-            else
-            {
-                Console.WriteLine("Not Prime");
-            }
+          bool status = IsPrime(n);
+
+
+            Console.WriteLine(status);
         }
 
         public static bool IsPrime(int n)
         {
-            //YOUR CODE HERE
-            return false;
+            bool IsPrimeStatus = true;
+            for (int k = 2; k < n; k++)
+            {
+                double remainder = n % k;
+                if (remainder != 0)
+                {
+                     IsPrimeStatus = true;
+                } 
+                else
+                {
+                     IsPrimeStatus = false;
+                     k = n;
+                }
+
+            }
 
 
+            return IsPrimeStatus;
         }
     }
 }

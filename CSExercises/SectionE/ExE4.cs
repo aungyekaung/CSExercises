@@ -18,6 +18,7 @@ namespace CSExercises
             Console.Write("Please enter an integer: ");
             int n = Convert.ToInt32(Console.ReadLine());
 
+
             if (IsPerfectNumber(n))
             {
                 Console.WriteLine("Perfect Number");
@@ -31,8 +32,31 @@ namespace CSExercises
         public static bool IsPerfectNumber(int n)
         {
             //YOUR CODE HERE
-            return false;
+            int temp = 1;
+            int total = 0;
 
+            for (int k=1; k<n; k++)
+            {
+                double remainder = n % k;
+                if (remainder == 0)
+                {
+                    temp = k;
+                }
+                else
+                {
+                    temp = 0;
+                }
+                total = total + temp;
+            }
+
+            if (total == n)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
     }
