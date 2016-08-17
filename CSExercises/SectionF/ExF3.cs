@@ -64,6 +64,17 @@ namespace CSExercises
         {
 
             int[] total = new int[12];
+            
+
+            for (int rows = 0; rows < marks.GetLength(0); rows++)
+            {
+                int sum = 0;
+                for (int col = 0; col < marks.GetLength(1); col++ )
+                {
+                    sum = sum + marks[rows, col];
+                    total[rows] = sum;
+                }
+            }
 
             //YOUR CODE HERE
             return total;
@@ -76,6 +87,19 @@ namespace CSExercises
             double[] avg = new double[12];
 
             //YOUR CODE HERE
+
+            for (int rows = 0; rows < marks.GetLength(0); rows++)
+            {
+                int sum = 0;
+                double avgeach = 0;
+                for (int col = 0; col < marks.GetLength(1); col++)
+                {
+                    sum = sum + marks[rows, col];
+                    avgeach = sum / marks.GetLength(1);
+                    avg[rows] = avgeach;
+                }
+            }
+
             return avg;
 
 
@@ -87,6 +111,20 @@ namespace CSExercises
             double[] avgPerSubject = new double[4];
 
             //YOUR CODE HERE
+
+            for (int col = 0; col < marks.GetLength(1); col++)
+            {
+                int sum = 0;
+                double avgeach = 0;
+                for (int rows = 0; rows < marks.GetLength(0); rows++)
+                {
+                    sum = sum + marks[rows, col];
+                    avgeach = sum / marks.GetLength(0);
+                    
+                }
+                avgPerSubject[col] = avgeach;
+            }
+
             return avgPerSubject;
 
 
