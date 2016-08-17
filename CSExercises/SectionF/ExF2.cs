@@ -26,8 +26,25 @@ namespace CSExercises
         {
             //YOUR CODE HERE
             //Sort the list
-
+            for (int i = 0; i<values.Length; i++)
+            {
+                int j = 1;
+                int temp = values[i];
+                do
+                {                    
+                    if (values[i] > values[j])
+                    {
+                        int temp2 = values[j];
+                        temp = values[j];
+                    }
+                    j++;
+                }
+                while(j < values.Length);
+                values[i] = temp;
+            }
+            
         }
 
-    }
+     }
+
 }
