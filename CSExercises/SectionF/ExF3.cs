@@ -45,18 +45,19 @@ namespace CSExercises
             int[] total = CalculateTotalMarks(marks);
             double[] avg = CalculateStudentAverage(marks);
             double[] avgPerSubject = CalculateSubjectAverage(marks);
-            double[] variance = CalculateVariance(marks);
+            double[] StandDev = CalculateVariance(marks);
 
 
             for (int row = 0; row < 12; row++)
             {
-                Console.WriteLine("Total marks for student {0}: {1}",row,total[row]);
-                Console.WriteLine("Avg marks for student {0}: {1}", row, avg[row]);
+                Console.WriteLine("Total marks for student {0} is \t\t {1}",row,total[row]);
+                Console.WriteLine("Avg marks for student {0} is \t\t {1}", row, avg[row]);
+                Console.WriteLine("Standard Deviation for each student {0} is \t\t {1}", row, StandDev[row]);
             }
 
             for (int col = 0; col < 4; col++)
             {
-                Console.WriteLine("Avg marks for subject {0}: {1}", col, avgPerSubject[col]);
+                Console.WriteLine("Avg marks for subject {0} is \t\t {1}", col, avgPerSubject[col]);
             }
 
         }
@@ -119,8 +120,6 @@ namespace CSExercises
                 double avgeach = 0;
                 for (int rows = 0; rows < marks.GetLength(0); rows++)
                 {
-                    int Xi = marks[rows, col];
-                    double M = avgeach[col,0];
                     sum = sum + marks[rows, col];
                     avgeach = sum / marks.GetLength(0);
                     
@@ -138,18 +137,20 @@ namespace CSExercises
 
         public static double[] CalculateVariance(int[,] marks)
         {
-            double[] variance = new double[12];
-            double sum = 0;
-            double[] subavg = CalculateSubjectAverage(marks);
-            
-            //YOUR CODE HERE - bonus questions
+            double[] StanDev = new double[marks.GetLength(0)];
+            double[] stdAvg = CalculateStudentAverage(marks);
+
+            for (int row = 0; row < marks.GetLength(0); row++ )
+            {
+                double sum = 0;
                 for (int col = 0; col < marks.GetLength(1); col++)
                 {
-                sum = sum + Math.Pow((marks[0, col]) - subavg[]),2);  
-                }
-                
 
-            return variance;
+                    sum = sum + Math.Pow((marks[row,col] - stdAvg[row]),2);
+                }
+                StanDev[row] = Math.Sqrt(sum / marks.GetLength(1));
+            }
+                return StanDev;
         }
     }
 }

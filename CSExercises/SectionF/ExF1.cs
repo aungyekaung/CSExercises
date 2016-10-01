@@ -35,6 +35,7 @@ namespace CSExercises
 
             CalculateMinMaxAvg(sales, ref min, ref max, ref avg);
 
+
             Console.WriteLine("Maximum Sales: " + max);
             Console.WriteLine("Minimum Sales: " + min);
             Console.WriteLine("Average Sales: " + avg);
@@ -44,30 +45,58 @@ namespace CSExercises
         {
             //YOUR CODE HERE
             //Assign the result to minMonth, maxMonth and avg variable/parameter accordingly
-
-
+            maxMonth = CalculateMaxMonth(sales);
+            minMonth = CalculateMinMonth(sales);
+            avg = CalculateAvgSales(sales);
         }
 
         public static int CalculateMinMonth(int[] sales)
         {
+            int tempsales = sales[0];
+            int minmonth = 0;
             //YOUR CODE HERE
-            return 0;
+            for (int i = 0; i < sales.Length; i++)
+            {
+                if (tempsales > sales[i])
+                {
+                    tempsales = sales[i];
+                    minmonth = i;
+                }
+            }
+            return minmonth;
 
         }
 
         public static int CalculateMaxMonth(int[] sales)
         {
             //YOUR CODE HERE
-            return 0;
-
-
+            int tempsales = sales[0];
+            int maxmonth = 0;
+            //YOUR CODE HERE
+            for (int i = 0; i < sales.Length; i++)
+            {
+                if (tempsales < sales[i])
+                {
+                    tempsales = sales[i];
+                    maxmonth = i;
+                }
+            }
+            return maxmonth;
 
         }
 
         public static double CalculateAvgSales(int[] sales)
         {
             //YOUR CODE HERE
-            return 0;
+            int total = 0;
+            double avg = 0;
+            for (int i = 0; i < sales.Length; i++)
+            {
+                total = total + sales[i];
+            }
+            avg = total / sales.Length;
+
+            return avg;
 
         }
 
