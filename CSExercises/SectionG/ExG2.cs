@@ -32,11 +32,40 @@ namespace CSExercises
         public static bool IsPalindrome(string phrase)
         {
             //YOUR CODE HERE
-            return false;
+            phrase = ModifyString(phrase);
 
+            Console.WriteLine(phrase);
 
+            bool result = false;
+            int count = 0;
 
+            for (int i = 0; i < phrase.Length/2; i++ )
+            {
+                if (phrase.Substring(i,1) == (phrase.Substring(phrase.Length - (1+i), 1)))
+                {
+                    count++;
+                }
+                if (count == phrase.Length/2)
+                {
+                    result = true;
+                    break;
+                }
+            }
 
+            return result;
+        }
+
+        public static string ModifyString (string phrase)
+        {
+            string[] punc = {" ", ".", ",", "'", ";", ":", "!", "@", "\""};
+            phrase = phrase.ToLower();
+
+            for (int k = 0; k < punc.Length; k++)
+            {
+                phrase = phrase.Replace(punc[k], string.Empty);
+            }
+
+            return phrase;
         }
     }
-}
+} 
