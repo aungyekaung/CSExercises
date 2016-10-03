@@ -21,6 +21,8 @@ namespace CSExercises
         {
             s1 = ModifyString(s1);
             s2 = ModifyString(s2);
+            Console.WriteLine(s1);
+            Console.WriteLine(s2);
             int count = 0;
             Console.WriteLine(s1 + s2);
             bool result = false;
@@ -47,7 +49,7 @@ namespace CSExercises
 
         public static string ModifyString(string phrase)
         {
-            string[] punc = { " ", ".", ",", "'", ";", ":", "!", "@", "\"" };
+            string[] punc = {  ".", ",", "'", ";", ":", "!", "@", "\"" };
             phrase = phrase.ToLower();
 
             for (int k = 0; k < punc.Length; k++)
